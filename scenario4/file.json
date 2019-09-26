@@ -1,0 +1,29 @@
+{
+    "key": "1546955346670",
+    "value": {
+        "Zone": "75b93e66-9b5b-4cae-9051-fe91fad8ca61",
+        "Subnet": {
+            "Id": "9627dff2-4736-4e82-9a01-a3bb73794319",
+            "SubnetConfiguration": {
+                "DhcpFirstAddress": "10.1.1.23",
+                "DhcpGateway": "10.1.1.1",
+                "DhcpLastAddress": "10.1.1.250",
+                "DnsPrimary": "8.8.8.8",
+                "DnsSecondary": "1.1.1.1",
+                "SubnetAddress": "10.1.1.0",
+                "SubnetMask": "255.255.255.0",
+                "GatewayAddress": "10.1.1.1"
+            }
+        },
+        "Gateway": {
+            "Speed": "50",
+            "Product": "TECH-SDWN-E200",
+            "FiberType": "FTTH_NEBA"
+        },
+        "OperationId": "4d53a2b5-b1b8-4425-9288-20076f8ebb8a",
+        "EntityId": "1aaa0398-2f5a-463c-a20f-65403a292e56",
+        "TenantId": "0",
+        "NAME": "created",
+        "VERSION": "1.0.0"
+    }
+}
