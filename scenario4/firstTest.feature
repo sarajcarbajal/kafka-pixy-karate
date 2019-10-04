@@ -1,4 +1,3 @@
-@Stories=ORXQA-17
 Feature: first test of poc kafka pixy
 
   Background:
@@ -14,20 +13,22 @@ Feature: first test of poc kafka pixy
 
   Scenario: Initialize group offsets
     * path '/topics/foo/messages'
-    * param group = 'group1'
+    * param group = 'group0'
     * method get
     * path '/topics/events.xprivacy.configuration/messages'
     * param group = 'group1'
     * method get
 
+  @Stories=ORXQA-17
   Scenario: Produce message to Kafka
     Given path '/topics/foo/messages'
     And param sync = ''
-    And header Content-Type = 'x-www-form-urlencoded'
+    And header Content-Type = 'application/json'
     And request msg='May the force be with you'
     When method post
     Then status 200
 
+  @Stories=ORXQA-17
   Scenario: Produce another message to Kafka
     Given path '/topics/events.xprivacy.configuration/messages'
     And param sync = ''
@@ -36,6 +37,7 @@ Feature: first test of poc kafka pixy
     When method post
     Then status 200
 
+  @Stories=ORXQA-17
   Scenario: Consume message from Kafka
     Given path '/topics/events.xprivacy.configuration/messages'
     And param group = 'group1'
