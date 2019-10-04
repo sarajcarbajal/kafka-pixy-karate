@@ -11,6 +11,6 @@ sleep 15
 echo -e "${NC}"
 
 echo -e "${BLUE}#####Starting Kafka-pixy#####"
-kafka-pixy &
+kafka-pixy --config ../scenario3/config.yaml &
 sleep 8
 echo -e "${NC}"

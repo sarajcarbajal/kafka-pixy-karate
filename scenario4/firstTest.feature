@@ -1,3 +1,4 @@
+@Stories=ORXQA-17
 Feature: first test of poc kafka pixy
 
   Background:
@@ -6,6 +7,18 @@ Feature: first test of poc kafka pixy
       # pretty print the request/response payload
     * configure logPrettyRequest = true
     * configure logPrettyResponse = true
+
+  Scenario: Create topics in kafka
+    * def topics = karate.exec("bash -x create_topics_kafka.sh")
+    * print topics
+
+  Scenario: Initialize group offsets
+    * path '/topics/foo/messages'
+    * param group = 'group1'
+    * method get
+    * path '/topics/events.xprivacy.configuration/messages'
+    * param group = 'group1'
+    * method get
 
   Scenario: Produce message to Kafka
     Given path '/topics/foo/messages'
@@ -24,6 +37,7 @@ Feature: first test of poc kafka pixy
     Then status 200
 
   Scenario: Consume message from Kafka
-    Given path '/topics/events.xprivacy.configuration/consumers'
+    Given path '/topics/events.xprivacy.configuration/messages'
+    And param group = 'group1'
     When method get
     Then status 200

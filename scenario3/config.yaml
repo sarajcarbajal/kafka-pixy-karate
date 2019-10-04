@@ -175,7 +175,7 @@ proxies:
 
       # Period of time that Kafka-Pixy should keep a subscription for a
       # topic by a group in absence of requests to from the consumer group.
-      subscription_timeout: 15s
+      subscription_timeout: 30s
 
 # Configuration for securely accessing the gRPC and web servers
 tls:
