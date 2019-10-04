@@ -4,8 +4,8 @@ Kafka-Pixy is a dual API (gRPC and REST) proxy for Kafka with automatic consumer
 
 ## Prerequisites
 
-* Golang
-* Kafka environment deployment
+- Golang
+- Kafka environment deployment
 
 ## Getting Started Kafka-pixy
 
@@ -123,24 +123,24 @@ Once tests have been finished, run `stop_scenario4.sh` to stop **Kafka** and **Z
 
 ### Reporting Karate Test results to Zephyr JIRA
 
-If you need to report the results obtained of karate tests to Zephyr JIRA, you can use [Zephyr Sync](https://github.com/ctco/zephyr-sync) to do it.
+If you need to report the results obtained of karate tests to Zephyr JIRA, you can use [Zephyr Sync](https://github.com/ctco/zephyr-sync) to do it. (Run with JAVA 8)
 
 First of all, you need to add `@Stories=XXXX` to the Feature Scenario of Karate test
 
 After that, run the command with a series of parameters described below:
 
-| Parameter  | Description | Is mandatory? |
-| ---------- | ----------- | -------------:|
-| --username | Username of JIRA  | yes |
-| --password | Password of Jira | yes |
-| --reportType | Type of report that will be synchronized to Zephyr (cucumber, allure, junit, nunit) | yes|
-| --projectKey | Key of project in JIRA | yes
-| --releaseVersion | Release version to link Test results to | yes |
-| --jiraUrl | Url of JIRA followed by `/rest/` | yes |
-| --reportPath | Path on the file system where reports are stored | yes |
-| --testCycle | Zephyr test cycle where the results will be linked to | yes |
-| --linkType | Link type between Test issue and related story (used in combination with @Stories annotation inside Karate Test Feature/Scenarios. eg `@Stories=ABC-XXX`) | no |
-| --forceStoryLink | If set to true, sync will be failed in case at least one test doesn't have `@Stories=ABC-XXX` annotation | no |
+| Parameter        | Description                                                                                                                                               | Is mandatory? |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| --username       | Username of JIRA                                                                                                                                          | yes           |
+| --password       | Password of Jira                                                                                                                                          | yes           |
+| --reportType     | Type of report that will be synchronized to Zephyr (cucumber, allure, junit, nunit)                                                                       | yes           |
+| --projectKey     | Key of project in JIRA                                                                                                                                    | yes           |
+| --releaseVersion | Release version to link Test results to                                                                                                                   | yes           |
+| --jiraUrl        | Url of JIRA followed by `/rest/`                                                                                                                          | yes           |
+| --reportPath     | Path on the file system where reports are stored                                                                                                          | yes           |
+| --testCycle      | Zephyr test cycle where the results will be linked to                                                                                                     | yes           |
+| --linkType       | Link type between Test issue and related story (used in combination with @Stories annotation inside Karate Test Feature/Scenarios. eg `@Stories=ABC-XXX`) | no            |
+| --forceStoryLink | If set to true, sync will be failed in case at least one test doesn't have `@Stories=ABC-XXX` annotation                                                  | no            |
 
 ```[bash]
 java -jar zephyr-sync-cli-${zephyr-sync.version}-all-in-one.jar --username=${username_jira} --password={pass_jira} --reportType=cucumber --projectKey=${key_project-jira} --releaseVersion=${release_version_jira} --jiraUrl=https://${url_jira}/rest/ --reportPath=${build_target}/surefire-reports/report.json --testCycle=${zephyr_test_cycle} --linkType=Tests --forceStoryLink=false
